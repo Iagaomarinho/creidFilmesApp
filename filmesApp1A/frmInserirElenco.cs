@@ -24,7 +24,7 @@ namespace filmesApp1A
         private void frmInserirElenco_Load(object sender, EventArgs e)
         {
             List<Ator> atores = this.db.Ator.ToList();
-            cbxAtor.DataSource = atores;// --> nao funciona aparece: Castle.Proxies.AtorProxy
+            cbxAtor.DataSource = atores;
             
             
         }
