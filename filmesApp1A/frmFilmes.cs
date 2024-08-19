@@ -61,6 +61,7 @@ namespace filmesApp1A
 
             if (r == DialogResult.Yes)
             {
+                selecionado.Atores.Clear();
                 this.db.Filme.Remove(selecionado);
                 this.db.SaveChanges();
                 MessageBox.Show("Sucesso");

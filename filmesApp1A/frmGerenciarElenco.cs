@@ -31,11 +31,9 @@ namespace filmesApp1A
         }
         private void btInserir_Click(object sender, EventArgs e)
         {
-            /*DialogResult r = MessageBox.Show
-                (db.Ator.ToString(), "", MessageBoxButtons.OKCancel);
-            filme.Atores.Add(ator);
-            db.Filme.Update(filme);
-            db.SaveChanges();*/
+            frmInserirElenco f = new frmInserirElenco(filme);
+            f.ShowDialog();
+            Recarregar();
         }
 
         private void dgvElenco_CellClick(object sender, DataGridViewCellEventArgs e)

@@ -16,7 +16,7 @@ namespace filmesApp1A.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLazyLoadingProxies();
-            optionsBuilder.UseNpgsql("Host=localhost;Database=filmes2B;Username=postgres;Password=postgres");
+            optionsBuilder.UseNpgsql("Host=localhost;Database=filmes2B;Username=postgres;Password=postgres");   
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

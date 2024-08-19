@@ -35,7 +35,6 @@ namespace filmesApp1A
             Pais pais = this.db.Pais.Where(
                 p => p.Nome == cbxNacionalidade.SelectedItem.ToString()).First();
             ator.Nacionalidade = pais;
-
             this.db.Ator.Update(ator);
             this.db.SaveChanges();
             
