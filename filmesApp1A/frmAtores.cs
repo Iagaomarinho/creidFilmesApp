@@ -35,7 +35,6 @@ namespace filmesApp1A
         private void frmAtores_FormClosing(object sender, FormClosingEventArgs e)
         {
             anterior.Show();
-            this.Close();
         }
 
         private void btCadastrar_Click(object sender, EventArgs e)

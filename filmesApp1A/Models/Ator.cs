@@ -26,5 +26,10 @@ namespace filmesApp1A.Models
             Filmes = new List<Filme>();
             Nacionalidade = new Pais();
         }
+
+        public override string ToString()
+        {
+            return nome;
+        }
     }
 }

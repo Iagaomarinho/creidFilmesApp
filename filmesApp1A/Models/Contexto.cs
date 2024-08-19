@@ -12,7 +12,7 @@ namespace filmesApp1A.Models
         public DbSet<Ator> Ator { get; set; }
         public DbSet<Filme> Filme{ get; set; }
         public DbSet<Pais> Pais { get; set; }
-
+            
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseLazyLoadingProxies();

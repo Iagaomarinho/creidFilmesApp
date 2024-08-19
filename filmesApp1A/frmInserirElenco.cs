@@ -14,41 +14,33 @@ namespace filmesApp1A
     public partial class frmInserirElenco : Form
     {
         Filme filme;
-        public frmInserirElenco(Filme filme)
+        Contexto db;
+        public frmInserirElenco(Filme filme, Contexto db)
         {
             InitializeComponent();
             this.filme = filme;
+            this.db = db;
         }
-        Contexto db;
         private void frmInserirElenco_Load(object sender, EventArgs e)
         {
-            this.db = new Contexto();
             List<Ator> atores = this.db.Ator.ToList();
-            //cbxAtor.DataSource = atores; --> nao funciona aparece: Castle.Proxies.AtorProxy
-            //solução chatgpt
-            //|||||||||||||||
-            //vvvvvvvvvvvvvvv
-            cbxAtor.DataSource = db.Ator.Select(a => new { a.Id, a.Nome }).ToList();
-            cbxAtor.DisplayMember = "Nome";
-            cbxAtor.ValueMember = "Id";
+            cbxAtor.DataSource = atores;// --> nao funciona aparece: Castle.Proxies.AtorProxy
+            
+            
         }
         private void btAdd_Click(object sender, EventArgs e)
         {
             if (cbxAtor.SelectedIndex > -1)
             {
-                int atorId = (int)cbxAtor.SelectedValue; // Obtém o ID selecionado
-
-                // Carrega o objeto Ator do banco usando o ID
-                var ator = db.Ator.Local.FirstOrDefault(a => a.Id == atorId);
-                if (ator == null)
-                {
-                    // Carrega do banco apenas se não estiver sendo rastreado
-                    ator = db.Ator.Find(atorId);
-                }
-
+                Ator ator = this.db.Ator.
+                    Where(
+                        p => cbxAtor.SelectedItem.ToString() == p.Nome
+                    )
+                .First();
                 filme.Atores.Add(ator);
                 this.db.Filme.Update(filme);
                 this.db.SaveChanges();
+                MessageBox.Show("Adicionado com sucesso!");
             }
         }
 

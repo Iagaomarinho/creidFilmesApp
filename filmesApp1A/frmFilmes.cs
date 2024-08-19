@@ -76,7 +76,6 @@ namespace filmesApp1A
         private void frmFilmes_FormClosing(object sender, FormClosingEventArgs e)
         {
             anterior.Show();
-            this.Close();
         }
 
         private void dgvFilmes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -96,7 +95,7 @@ namespace filmesApp1A
 
         private void btGerenciar_Click(object sender, EventArgs e)
         {
-            frmGerenciarElenco f = new frmGerenciarElenco(selecionado);
+            frmGerenciarElenco f = new frmGerenciarElenco(selecionado, db);
             f.ShowDialog();
             Recarregar("");
         }

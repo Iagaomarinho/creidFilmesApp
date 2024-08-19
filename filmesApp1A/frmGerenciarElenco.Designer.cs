@@ -69,18 +69,19 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(25, 28);
+            label1.Location = new Point(24, 28);
             label1.Name = "label1";
-            label1.Size = new Size(89, 15);
+            label1.Size = new Size(92, 15);
             label1.TabIndex = 3;
-            label1.Text = "Elenco do filme";
+            label1.Text = "Elenco do filme:";
             // 
             // lblFilme
             // 
             lblFilme.AutoSize = true;
-            lblFilme.Location = new Point(123, 28);
+            lblFilme.Font = new Font("Segoe UI", 15F);
+            lblFilme.Location = new Point(122, 17);
             lblFilme.Name = "lblFilme";
-            lblFilme.Size = new Size(0, 15);
+            lblFilme.Size = new Size(0, 28);
             lblFilme.TabIndex = 4;
             // 
             // frmGerenciarElenco
