@@ -13,16 +13,16 @@ namespace filmesApp1A
 {
     public partial class frmEditarAtor : Form
     {
-        Ator ator;
-        public frmEditarAtor(Ator ator)
+        Ator ator; Contexto db;
+        public frmEditarAtor(Ator ator, Contexto db)
         {
             InitializeComponent();
             this.ator = ator;
+            this.db = db;
         }
-        Contexto db;
         private void frmEditarAtor_Load(object sender, EventArgs e)
         {
-            this.db = new Contexto();
+            ator.Filmes  = this.db.Filme.Where(filme => filme.Atores.Contains(ator)).ToList();
             txtNome.Text = ator.Nome;
             cbxNacionalidade.DataSource = this.db.Pais.ToList();
             cbxNacionalidade.SelectedIndex = cbxNacionalidade.FindStringExact(ator.Nacionalidade.Nome);

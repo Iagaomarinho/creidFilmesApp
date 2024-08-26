@@ -83,7 +83,7 @@ namespace filmesApp1A
 
         private void btEditar_Click(object sender, EventArgs e)
         {
-            frmEditarAtor f = new frmEditarAtor(selecionado);
+            frmEditarAtor f = new frmEditarAtor(selecionado, this.db);
             f.ShowDialog();
             Recarregar(txtBuscar.Text);
         }
